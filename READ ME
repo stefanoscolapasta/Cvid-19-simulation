@@ -1,0 +1,6 @@
+Press LMB to spawn healthy cells
+Press RMB to spawn infected cells
+Press Middle Mouse Button to spawn walls
+Press UPKEY to start keeping track of the data of the virus spread
+Once you'll close the simulation window, a plot will open showing the graph of the virus spread.
+I suggest pressing KEYUP as soon as you start or finish spawning the infected cells
