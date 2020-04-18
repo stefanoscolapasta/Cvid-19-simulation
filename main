@@ -24,7 +24,7 @@ screenL = 1000
 # Create a 2 dimensional array. A two dimensional
 # array is simply a list of lists.
 grid = []
-morti = 0
+deaths = 0
 for row in range(gridSize):
     grid.append([])
     for column in range(gridSize):
@@ -174,7 +174,7 @@ while not done:
                 if guarisci_o_peggiori < 900:
                     grid[row][column] = 4
                 elif 900<=guarisci_o_peggiori<=920:
-                    morti += 1
+                    deaths += 1
                     grid[row][column] = 0
                 else:
                     grid[row][column] = 1
@@ -270,11 +270,9 @@ while not done:
                 color = WHITE
             pygame.draw.rect(screen, color, [(MARGIN + WIDTH) * column + MARGIN, (MARGIN + HEIGHT) * row + MARGIN, WIDTH, HEIGHT])
 
-    print(f"Celle Totali = {quanteCelle}")
+    #print(f"Celle Totali = {quanteCelle}")
     #print(f"Verdi = {verdiCelle}")
     #print(f"Verdi = {rosseCelle}")
-
-    #AGGIORNA PLOT PER GRAFICO
 
     rapporto_sani_contagiati = 0
     totali_contagiati = rosseCelle + violaCelle
@@ -282,12 +280,13 @@ while not done:
     try:
         rapporto_sani_contagiati = totali_contagiati / personeTotali
     except:
-        a = 0
+        pass
     if start > 0:
         iterazione += 1
         animate(iterazione, totali_contagiati)
     pygame.display.update()
-print(f"Morti = {morti}")
+print(f"Deaths = {deaths}")
+#This is done to draw plot
 plt.plot(x_vals, y_vals)
 plt.tight_layout()
 plt.show()
